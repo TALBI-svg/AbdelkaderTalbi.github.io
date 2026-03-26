@@ -1,7 +1,13 @@
 import type {NextConfig} from 'next';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'export',
+  // Set basePath to your repository name for GitHub Pages deployment (e.g., '/portfolio')
+  // basePath: isProd ? '/portfolio' : '',
+  // assetPrefix: isProd ? '/portfolio/' : '',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +15,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

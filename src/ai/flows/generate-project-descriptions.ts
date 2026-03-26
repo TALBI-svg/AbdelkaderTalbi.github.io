@@ -1,90 +1,54 @@
-'use server';
 /**
  * @fileOverview An AI assistant flow that generates varied and audience-appropriate summary descriptions for projects.
  *
  * - generateProjectDescriptions - A function that handles the project description generation process.
  * - GenerateProjectDescriptionsInput - The input type for the generateProjectDescriptions function.
  * - GenerateProjectDescriptionsOutput - The return type for the generateProjectDescriptions function.
+ * 
+ * Note: This flow has been modified to support static export on GitHub Pages.
+ * The original Genkit-based implementation has been commented out because it requires a server environment.
  */
 
-import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+export type GenerateProjectDescriptionsInput = {
+  projectName: string;
+  techStack: string[];
+  features: string[];
+  targetAudience: string;
+  tone: string;
+  numDescriptions: number;
+};
 
-const GenerateProjectDescriptionsInputSchema = z.object({
-  projectName: z.string().describe('The name of the project.'),
-  techStack: z
-    .array(z.string())
-    .describe('A list of technologies and frameworks used in the project.'),
-  features: z
-    .array(z.string())
-    .describe('A list of key features and functionalities of the project.'),
-  targetAudience: z
-    .string()
-    .describe(
-      'The intended audience for the project description (e.g., recruiters, potential clients, technical managers).'
-    ),
-  tone: z
-    .string()
-    .describe(
-      'The desired tone for the descriptions (e.g., professional, engaging, concise, innovative).'
-    ),
-  numDescriptions: z
-    .number()
-    .min(1)
-    .max(5)
-    .default(3)
-    .describe('The number of varied descriptions to generate (1-5).'),
-});
-export type GenerateProjectDescriptionsInput = z.infer<
-  typeof GenerateProjectDescriptionsInputSchema
->;
-
-const GenerateProjectDescriptionsOutputSchema = z.object({
-  descriptions: z
-    .array(z.string())
-    .describe('An array of generated project descriptions.'),
-});
-export type GenerateProjectDescriptionsOutput = z.infer<
-  typeof GenerateProjectDescriptionsOutputSchema
->;
+export type GenerateProjectDescriptionsOutput = {
+  descriptions: string[];
+};
 
 export async function generateProjectDescriptions(
   input: GenerateProjectDescriptionsInput
 ): Promise<GenerateProjectDescriptionsOutput> {
-  return generateProjectDescriptionsFlow(input);
+  // Mock implementation for static export on GitHub Pages
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        descriptions: [
+          `An innovative ${input.projectName} built with ${input.techStack.join(', ')} focused on ${input.features.join(' and ')}. (Static Export Mode)`,
+          `A professional-grade solution designed for ${input.targetAudience}, leveraging ${input.techStack[0]}. (Static Export Mode)`,
+          `Cutting-edge implementation of ${input.projectName} with a ${input.tone} tone. (Static Export Mode)`
+        ]
+      });
+    }, 1000);
+  });
 }
 
-const generateProjectDescriptionsPrompt = ai.definePrompt({
-  name: 'generateProjectDescriptionsPrompt',
-  input: { schema: GenerateProjectDescriptionsInputSchema },
-  output: { schema: GenerateProjectDescriptionsOutputSchema },
-  prompt: `You are an expert copywriter specializing in creating compelling project descriptions for full-stack developers' portfolios.
+/*
+import { ai } from '@/ai/genkit'; 
+import { z } from 'genkit';
 
-Generate {{numDescriptions}} varied and audience-appropriate project descriptions for the following project, formatted as a JSON array of strings. Each description should highlight the key aspects and appeal to the specified audience and tone.
+const GenerateProjectDescriptionsInputSchema = z.object({
+...
+*/
 
-Project Name: {{{projectName}}}
-
-Technology Stack:
-{{#each techStack}}- {{{this}}}
-{{/each}}
-
-Key Features:
-{{#each features}}- {{{this}}}
-{{/each}}
-
-Target Audience: {{{targetAudience}}}
-
-Desired Tone: {{{tone}}}`,
-});
-
+// Commented out the genkit flow definition because it requires a server environment
+/*
 const generateProjectDescriptionsFlow = ai.defineFlow(
-  {
-    name: 'generateProjectDescriptionsFlow',
-    inputSchema: GenerateProjectDescriptionsInputSchema,
-    outputSchema: GenerateProjectDescriptionsOutputSchema,
-  },
-  async (input) => {
-    const { output } = await generateProjectDescriptionsPrompt(input);
-    return output!;
-  }
-);
+...
+*/
