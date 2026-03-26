@@ -5,6 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code2, Sparkles, Binary } from 'lucide-react';
+import { getAssetPath } from '@/lib/utils';
 
 export function Hero() {
   return (
@@ -65,7 +66,7 @@ export function Hero() {
         <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_80px_-20px_rgba(102,102,204,0.3)] bg-background">
             <Image
-              src="/images/img1.jpeg"
+              src={getAssetPath('/images/img1.jpeg')}
               alt="Abdelkader Talbi"
               width={800}
               height={1000}

@@ -1,14 +1,18 @@
 import type {NextConfig} from 'next';
 
 const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'AbdelkaderTalbi.github.io';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
   trailingSlash: true,
   // Use the repo name for GitHub Pages deployment
-  basePath: isProd ? '/AbdelkaderTalbi.github.io' : '',
-  assetPrefix: isProd ? '/AbdelkaderTalbi.github.io/' : '',
+  basePath: isProd ? `/${repoName}` : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : '',
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
