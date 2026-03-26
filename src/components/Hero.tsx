@@ -33,7 +33,7 @@ export function Hero() {
               Systems<span className="text-accent">.</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-lg leading-relaxed font-body">
-              I'm Alex Rivera, a Senior Full-Stack Engineer crafting resilient digital ecosystems with Next.js, Cloud-Native architectures, and Generative AI.
+              I'm Abdelkader Talbi, a Full-Stack Developer crafting resilient digital ecosystems with Next.js, Cloud-Native architectures, and Generative AI.
             </p>
           </div>
 

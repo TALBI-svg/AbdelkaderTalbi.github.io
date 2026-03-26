@@ -57,7 +57,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] mb-1">Direct Line</p>
-                  <p className="text-lg font-headline font-bold">alex@devsphere.io</p>
+                  <p className="text-lg font-headline font-bold">abdelkader@devsphere.io</p>
                 </div>
               </div>
 
@@ -67,7 +67,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] mb-1">HQ Location</p>
-                  <p className="text-lg font-headline font-bold">San Francisco, CA</p>
+                  <p className="text-lg font-headline font-bold">Morocco</p>
                 </div>
               </div>
             </div>
