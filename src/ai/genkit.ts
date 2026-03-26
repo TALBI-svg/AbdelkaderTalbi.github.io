@@ -1,3 +1,4 @@
+/*
 import {genkit} from 'genkit';
 import {googleAI} from '@genkit-ai/google-genai';
 
@@ -5,3 +6,7 @@ export const ai = genkit({
   plugins: [googleAI()],
   model: 'googleai/gemini-2.5-flash',
 });
+*/
+
+// Export a placeholder for now to satisfy potential imports
+export const ai = {} as any;
