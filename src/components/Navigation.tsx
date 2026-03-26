@@ -59,10 +59,10 @@ export function Navigation() {
           </div>
           <div className="h-4 w-px bg-border mx-2" />
           <div className="flex items-center gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-accent hover:bg-white/5 rounded-full transition-all">
+            <a href="https://github.com/TALBI-svg" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-accent hover:bg-white/5 rounded-full transition-all">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-accent hover:bg-white/5 rounded-full transition-all">
+            <a href="https://www.linkedin.com/in/abdelkader-talbi-526744213/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-accent hover:bg-white/5 rounded-full transition-all">
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
@@ -94,10 +94,10 @@ export function Navigation() {
               </a>
             ))}
             <div className="pt-6 border-t border-border flex items-center gap-6">
-              <a href="https://github.com" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-accent transition-colors">
+              <a href="https://github.com/TALBI-svg" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-accent transition-colors">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://linkedin.com" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-accent transition-colors">
+              <a href="https://www.linkedin.com/in/abdelkader-talbi-526744213/" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-accent transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
               <a href="mailto:hello@devsphere.io" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-muted-foreground hover:text-accent transition-colors ml-auto">

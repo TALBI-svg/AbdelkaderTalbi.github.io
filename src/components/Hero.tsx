@@ -5,11 +5,8 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code2, Sparkles, Binary } from 'lucide-react';
-import { PlaceHolderImages } from '@/app/lib/placeholder-images';
 
 export function Hero() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
-
   return (
     <section id="about" className="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
       {/* Background decoration - Glowing Orbs */}
@@ -67,23 +64,20 @@ export function Hero() {
 
         <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_80px_-20px_rgba(102,102,204,0.3)] bg-background">
-            {heroImage && (
-              <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                width={800}
-                height={1000}
-                priority
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-1000 ease-out"
-                data-ai-hint={heroImage.imageHint}
-              />
-            )}
+            <Image
+              src="/images/img1.jpeg"
+              alt="Abdelkader Talbi"
+              width={800}
+              height={1000}
+              priority
+              className="w-full h-auto object-cover hover:scale-105 transition-transform duration-1000 ease-out"
+            />
             {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent pointer-events-none" />
           </div>
           
           {/* Floating UI Elements */}
-          <div className="absolute -top-10 -right-4 glass-card p-5 rounded-2xl flex items-center gap-4 animate-bounce-slow shadow-2xl border-accent/20">
+          <div className="absolute -top-10 -right-4 glass-card p-5 rounded-2xl flex items-center gap-4 animate-bounce-slow shadow-2xl border-accent/20 z-20">
             <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent">
               <Code2 className="w-6 h-6" />
             </div>
@@ -93,14 +87,14 @@ export function Hero() {
             </div>
           </div>
           
-          <div className="absolute -bottom-12 -left-8 glass-card p-6 rounded-2xl shadow-2xl max-w-[280px] border-primary/20">
+          <div className="absolute -bottom-12 -left-8 glass-card p-6 rounded-2xl shadow-2xl max-w-[280px] border-primary/20 z-20">
             <div className="flex gap-1.5 mb-3">
               {[1, 2, 3, 4, 5].map(i => (
                 <div key={i} className="w-1.5 h-1.5 rounded-full bg-accent/50" />
               ))}
             </div>
             <p className="text-xs leading-relaxed font-body italic text-muted-foreground mb-4">
-              "The most impactful engineer we've hired. Alex bridges the gap between complex logic and seamless UX."
+              "The most impactful engineer we've hired. Abdelkader bridges the gap between complex logic and seamless UX."
             </p>
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-secondary border border-border flex items-center justify-center">

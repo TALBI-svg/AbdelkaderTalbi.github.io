@@ -57,7 +57,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] mb-1">Direct Line</p>
-                  <p className="text-lg font-headline font-bold">abdelkader@devsphere.io</p>
+                  <p className="text-lg font-headline font-bold">abdelkadert95@gmail.com</p>
                 </div>
               </div>
 
@@ -76,8 +76,8 @@ export function Contact() {
               <p className="text-xs font-black text-muted-foreground uppercase tracking-[0.3em]">Social Networks</p>
               <div className="flex gap-4">
                 {[
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                  { icon: Github, href: '#', label: 'GitHub' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/in/abdelkader-talbi-526744213/', label: 'LinkedIn' },
+                  { icon: Github, href: 'https://github.com/TALBI-svg', label: 'GitHub' },
                   { icon: Terminal, href: '#', label: 'Dev.to' }
                 ].map((social, i) => (
                   <a 
@@ -145,8 +145,8 @@ export function Contact() {
           </div>
           
           <div className="flex flex-col items-center gap-4">
-            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.3em]">
-              &copy; {new Date().getFullYear()} Alex Rivera. Architected with Precision.
+            <p className="text-[10px] text-muted-foreground font-bold lowercase tracking-[0.3em]">
+              &copy; {new Date().getFullYear()} Abdelkader Talbi. Architected with Precision.
             </p>
             <div className="flex gap-8">
               <a href="#" className="text-[10px] font-black text-muted-foreground hover:text-accent transition-colors tracking-widest uppercase">Privacy Policy</a>

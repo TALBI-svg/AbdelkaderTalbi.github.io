@@ -36,7 +36,7 @@ const projects = [
     description: 'A robust multi-vendor marketplace built with Next.js 15, featuring a serverless event-driven architecture and real-time synchronization.',
     longDescription: 'EcoMarket 2.0 is a next-generation e-commerce platform designed for sustainability-focused brands. It utilizes a microservices architecture to handle high traffic loads and provides a seamless checkout experience with integrated Stripe support. The platform includes a vendor dashboard, real-time inventory tracking, and an automated recommendation engine.',
     tech: ['Next.js', 'PostgreSQL', 'Redis', 'Stripe', 'Node.js'],
-    github: 'https://github.com',
+    github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
     image: PlaceHolderImages.find(img => img.id === 'project-1')
   },
@@ -47,7 +47,7 @@ const projects = [
     description: 'Real-time data visualization platform processing millions of telemetry points using WebSockets and specialized time-series databases.',
     longDescription: 'Analytica Pro leverages GenAI to provide predictive insights for infrastructure monitoring. It processes millions of events per second through a Kafka-based pipeline and visualizes them using D3.js and custom Shaded UI components. The tool helps DevOps teams identify bottlenecks before they impact end-users.',
     tech: ['React', 'Python', 'D3.js', 'InfluxDB', 'FastAPI'],
-    github: 'https://github.com',
+    github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
     image: PlaceHolderImages.find(img => img.id === 'project-2')
   },
@@ -58,7 +58,7 @@ const projects = [
     description: 'Enterprise-grade collaboration workspace with CRDT-based real-time editing and end-to-end encrypted messaging.',
     longDescription: 'SyncFlow is a collaborative workspace that enables global teams to work together in real-time. By implementing Conflict-free Replicated Data Types (CRDTs), it ensures eventual consistency even in high-latency environments. Security is a top priority, with Signal-protocol based E2E encryption for all internal communications.',
     tech: ['TypeScript', 'Node.js', 'Socket.io', 'AWS', 'WebRTC'],
-    github: 'https://github.com',
+    github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
     image: PlaceHolderImages.find(img => img.id === 'project-3')
   }
