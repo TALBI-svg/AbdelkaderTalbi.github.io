@@ -5,9 +5,10 @@ const isProd = process.env.NODE_ENV === 'production';
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  // Set basePath to your repository name for GitHub Pages deployment (e.g., '/portfolio')
-  // basePath: isProd ? '/portfolio' : '',
-  // assetPrefix: isProd ? '/portfolio/' : '',
+  trailingSlash: true,
+  // Use the repo name for GitHub Pages deployment
+  basePath: isProd ? '/AbdelkaderTalbi.github.io' : '',
+  assetPrefix: isProd ? '/AbdelkaderTalbi.github.io/' : '',
   typescript: {
     ignoreBuildErrors: true,
   },
