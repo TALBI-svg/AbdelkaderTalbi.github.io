@@ -1,0 +1,29 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Abstract technology background",
+      "imageUrl": "https://picsum.photos/seed/devsphere-hero/1200/800",
+      "imageHint": "abstract technology"
+    },
+    {
+      "id": "project-1",
+      "description": "E-commerce platform screenshot",
+      "imageUrl": "https://picsum.photos/seed/project1/800/600",
+      "imageHint": "website dashboard"
+    },
+    {
+      "id": "project-2",
+      "description": "AI analytics tool screenshot",
+      "imageUrl": "https://picsum.photos/seed/project2/800/600",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "project-3",
+      "description": "SaaS collaboration app screenshot",
+      "imageUrl": "https://picsum.photos/seed/project3/800/600",
+      "imageHint": "mobile app"
+    }
+  ]
+}
