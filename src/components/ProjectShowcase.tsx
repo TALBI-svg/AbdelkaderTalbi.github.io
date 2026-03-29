@@ -56,7 +56,12 @@ const projects = [
     tech: ['React', 'Python', 'D3.js', 'InfluxDB', 'FastAPI'],
     github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
-    image: PlaceHolderImages.find(img => img.id === 'project-2')
+    image: { 
+      id: 'project-2',
+      imageUrl: 'https://picsum.photos/seed/project2/800/600', 
+      description: 'AI analytics tool screenshot',
+      imageHint: 'data visualization'
+    }
   },
   {
     id: 'project-3',
@@ -67,7 +72,12 @@ const projects = [
     tech: ['TypeScript', 'Node.js', 'Socket.io', 'AWS', 'WebRTC'],
     github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
-    image: PlaceHolderImages.find(img => img.id === 'project-3')
+    image: { 
+      id: 'project-3',
+      imageUrl: 'https://picsum.photos/seed/project3/800/600', 
+      description: 'SaaS collaboration app screenshot',
+      imageHint: 'mobile app'
+    }
   }
 ];
 
