@@ -3,7 +3,7 @@ import type {NextConfig} from 'next';
 const isProd = process.env.NODE_ENV === 'production';
 // If your repository is named AbdelkaderTalbi.github.io, it is a User Site and served at root (basePath = '')
 // If your repository is named 'portfolio', it is a Project Site and served at /portfolio/ (basePath = '/portfolio')
-const repoName = 'AbdelkaderTalbi.github.io'; 
+const repoName = 'portfolio'; 
 const isUserSite = repoName.endsWith('.github.io');
 
 const nextConfig: NextConfig = {
@@ -12,7 +12,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Use empty string for User Site, or repo name for Project Site
   basePath: isProd && !isUserSite ? `/${repoName}` : '',
-  assetPrefix: isProd && !isUserSite ? `/${repoName}/` : '',
+  // assetPrefix should be used with caution as basePath usually handles it
+  assetPrefix: isProd && !isUserSite ? `/${repoName}` : '',
   env: {
     NEXT_PUBLIC_BASE_PATH: isProd && !isUserSite ? `/${repoName}` : '',
   },
