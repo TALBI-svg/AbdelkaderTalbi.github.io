@@ -5,17 +5,19 @@ const isProd = process.env.NODE_ENV === 'production';
 /**
  * CONFIGURATION POUR GITHUB PAGES
  * --------------------------------
- * 1. Si votre dépôt est 'AbdelkaderTalbi.github.io', laissez repoName = ''
- * 2. Si votre dépôt est 'mon-projet', mettez repoName = '/mon-projet'
+ * Si votre URL est https://AbdelkaderTalbi.github.io/portfolio/, alors :
+ * repoName = '/portfolio'
+ * Si votre URL est https://AbdelkaderTalbi.github.io/, alors :
+ * repoName = ''
  */
-const repoName = ''; // <--- MODIFIEZ ICI (ex: '/portfolio' ou '')
+const repoName = '/portfolio'; 
 
 const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
-  // Le basePath est suffisant pour que Next.js gère les assets et les routes
+  // Le basePath et l'assetPrefix doivent correspondre pour que le CSS se charge
   basePath: isProd ? repoName : '',
-  // assetPrefix n'est généralement pas nécessaire si basePath est bien configuré
+  assetPrefix: isProd ? `${repoName}/` : '',
   images: {
     unoptimized: true,
   },
