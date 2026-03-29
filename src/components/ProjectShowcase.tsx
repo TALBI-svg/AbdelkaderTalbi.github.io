@@ -31,14 +31,19 @@ import { PlaceHolderImages } from '@/app/lib/placeholder-images';
 const projects = [
   {
     id: 'project-1',
-    title: 'EcoMarket 2.0',
-    category: 'E-Commerce',
-    description: 'A robust multi-vendor marketplace built with Next.js 15, featuring a serverless event-driven architecture and real-time synchronization.',
-    longDescription: 'EcoMarket 2.0 is a next-generation e-commerce platform designed for sustainability-focused brands. It utilizes a microservices architecture to handle high traffic loads and provides a seamless checkout experience with integrated Stripe support. The platform includes a vendor dashboard, real-time inventory tracking, and an automated recommendation engine.',
-    tech: ['Next.js', 'PostgreSQL', 'Redis', 'Stripe', 'Node.js'],
+    title: 'EmploisDash',
+    category: 'SaaS / Education',
+    description: 'A comprehensive educational management platform built with Next.js and NestJS, featuring real-time scheduling, RBAC, and AI-assisted content generation.',
+    longDescription: 'EmploisDash is an enterprise-grade scheduling and management platform for educational institutions. It features a high-performance grid system for course coordination, automated conflict detection, and an AI-powered assistant for generating session descriptions. Built with a modern full-stack architecture, it ensures seamless synchronization between a NestJS backend and a responsive Next.js frontend.',
+    tech: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'TanStack Query', 'Tailwind CSS'],
     github: 'https://github.com/TALBI-svg',
     live: 'https://example.com',
-    image: PlaceHolderImages.find(img => img.id === 'project-1')
+    image: { 
+      id: 'project-1',
+      imageUrl: '/images/EmploisDash1.png', 
+      description: 'EmploisDash Dashboard',
+      imageHint: 'educational dashboard'
+    }
   },
   {
     id: 'project-2',
@@ -64,7 +69,7 @@ const projects = [
   }
 ];
 
-const categories = ['All', 'E-Commerce', 'AI SaaS', 'Collaboration'];
+const categories = ['All', 'SaaS / Education', 'AI SaaS', 'Collaboration'];
 
 export function ProjectShowcase() {
   const [filter, setFilter] = useState('All');
@@ -134,7 +139,7 @@ export function ProjectShowcase() {
                       alt={project.image.description}
                       width={800}
                       height={600}
-                      className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                      className="w-full h-full object-cover object-top grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 scale-125 group-hover:scale-135"
                       data-ai-hint={project.image.imageHint}
                     />
                   )}
@@ -148,13 +153,13 @@ export function ProjectShowcase() {
                           </Button>
                         </DialogTrigger>
                         <DialogContent className="max-w-2xl bg-card border-white/10 p-0 rounded-[2.5rem] overflow-hidden">
-                          <div className="relative h-64 w-full">
+                          <div className="relative h-64 w-full overflow-hidden">
                             {project.image && (
                               <Image 
                                 src={project.image.imageUrl} 
                                 alt={project.title} 
                                 fill 
-                                className="object-cover"
+                                className="object-cover object-top scale-110"
                               />
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
