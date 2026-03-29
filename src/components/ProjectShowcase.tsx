@@ -28,6 +28,8 @@ import {
 } from "@/components/ui/dialog";
 import { PlaceHolderImages } from '@/app/lib/placeholder-images';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const projects = [
   {
     id: 'project-1',
@@ -40,7 +42,7 @@ const projects = [
     live: 'https://example.com',
     image: { 
       id: 'project-1',
-      imageUrl: '/images/EmploisDash1.png', 
+      imageUrl: `${basePath}/images/EmploisDash1.png`, 
       description: 'EmploisDash Dashboard',
       imageHint: 'educational dashboard'
     }

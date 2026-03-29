@@ -1,17 +1,20 @@
 import type {NextConfig} from 'next';
 
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'AbdelkaderTalbi.github.io';
+// If your repository is named AbdelkaderTalbi.github.io, it is a User Site and served at root (basePath = '')
+// If your repository is named 'portfolio', it is a Project Site and served at /portfolio/ (basePath = '/portfolio')
+const repoName = 'AbdelkaderTalbi.github.io'; 
+const isUserSite = repoName.endsWith('.github.io');
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
   trailingSlash: true,
-  // Use the repo name for GitHub Pages deployment
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '',
+  // Use empty string for User Site, or repo name for Project Site
+  basePath: isProd && !isUserSite ? `/${repoName}` : '',
+  assetPrefix: isProd && !isUserSite ? `/${repoName}/` : '',
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : '',
+    NEXT_PUBLIC_BASE_PATH: isProd && !isUserSite ? `/${repoName}` : '',
   },
   typescript: {
     ignoreBuildErrors: true,
