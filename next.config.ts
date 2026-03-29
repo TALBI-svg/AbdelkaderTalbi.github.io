@@ -5,12 +5,10 @@ const isProd = process.env.NODE_ENV === 'production';
 /**
  * CONFIGURATION POUR GITHUB PAGES
  * --------------------------------
- * Si votre URL est https://AbdelkaderTalbi.github.io/portfolio/, alors :
- * repoName = '/portfolio'
- * Si votre URL est https://AbdelkaderTalbi.github.io/, alors :
- * repoName = ''
+ * Votre dépôt est 'AbdelkaderTalbi.github.io' servi sous :
+ * https://talbi-svg.github.io/AbdelkaderTalbi.github.io/
  */
-const repoName = '/portfolio'; 
+const repoName = '/AbdelkaderTalbi.github.io'; 
 
 const nextConfig: NextConfig = {
   output: 'export',

@@ -27,8 +27,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { PlaceHolderImages } from '@/app/lib/placeholder-images';
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+import { getAssetPath } from '@/lib/utils';
 
 const projects = [
   {
@@ -42,7 +41,7 @@ const projects = [
     live: 'https://example.com',
     image: { 
       id: 'project-1',
-      imageUrl: `${basePath}/images/EmploisDash1.png`, 
+      imageUrl: getAssetPath('/images/EmploisDash1.png'), 
       description: 'EmploisDash Dashboard',
       imageHint: 'educational dashboard'
     }
