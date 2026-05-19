@@ -41,7 +41,7 @@ const projects = [
     live: 'https://example.com',
     image: { 
       id: 'project-1',
-      imageUrl: getAssetPath('/images/EmploisDash1.png'), 
+      imageUrl: getAssetPath('/images/EmploisDash.png'), 
       description: 'EmploisDash Dashboard',
       imageHint: 'educational dashboard'
     }
@@ -77,10 +77,26 @@ const projects = [
       description: 'SaaS collaboration app screenshot',
       imageHint: 'mobile app'
     }
+  },
+  {
+    id: 'project-4',
+    title: 'ScholarQuiz',
+    category: 'AI SaaS / Education',
+    description: 'AI-powered platform for competitive exam preparation with real-time quiz generation and performance tracking.',
+    longDescription: 'ScholarQuiz is a modern and intuitive platform dedicated to competitive exam preparation. It leverages Google Gemini via Genkit to generate personalized practice questions and offers dual training modes: Preparation (interactive learning with feedback) and Exam (real-time simulation). Built with Next.js 15 and Shadcn/UI, it provides a mobile-first experience with comprehensive performance tracking.',
+    tech: ['Next.js 15', 'TypeScript', 'Genkit', 'Google Gemini', 'Tailwind CSS', 'Shadcn UI'],
+    github: 'https://github.com/TALBI-svg/scholar-quiz',
+    live: 'https://talbi-svg.github.io/ScholarQuiz/',
+    image: { 
+      id: 'project-4',
+      imageUrl: getAssetPath('/images/ScholarQuiz.png'), 
+      description: 'ScholarQuiz Application Interface',
+      imageHint: 'AI education platform'
+    }
   }
 ];
 
-const categories = ['All', 'SaaS / Education', 'AI SaaS', 'Collaboration'];
+const categories = ['All', 'SaaS / Education', 'AI SaaS', 'Collaboration', 'AI SaaS / Education'];
 
 export function ProjectShowcase() {
   const [filter, setFilter] = useState('All');
@@ -143,82 +159,106 @@ export function ProjectShowcase() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredProjects.map((project) => (
               <div key={project.id} className="group flex flex-col h-full bg-card/20 rounded-[2rem] border border-white/5 overflow-hidden hover:border-accent/30 hover:bg-card/40 transition-all duration-500 hover:-translate-y-2">
-                <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[1.5rem]">
-                  {project.image && (
-                    <Image
-                      src={project.image.imageUrl}
-                      alt={project.image.description}
-                      width={800}
-                      height={600}
-                      className="w-full h-full object-cover object-top grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 scale-125 group-hover:scale-135"
-                      data-ai-hint={project.image.imageHint}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
+                <div className="relative aspect-[4/3] overflow-hidden m-4 rounded-[1.5rem] group/image">
+                  {/* Image-only Dialog */}
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div className="w-full h-full cursor-pointer">
+                        {project.image && (
+                          <Image
+                            src={project.image.imageUrl}
+                            alt={project.image.description}
+                            width={800}
+                            height={600}
+                            className="w-full h-full object-cover object-top grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 scale-125 group-hover:scale-135"
+                            data-ai-hint={project.image.imageHint}
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl bg-transparent border-none p-0 shadow-none">
+                      <DialogHeader className="sr-only">
+                        <DialogTitle>{project.title} Preview</DialogTitle>
+                        <DialogDescription>Full view of the {project.title} project image.</DialogDescription>
+                      </DialogHeader>
+                      <div className="relative w-full aspect-[4/3] md:aspect-video overflow-hidden rounded-[1.5rem]">
+                        {project.image && (
+                          <Image 
+                            src={project.image.imageUrl} 
+                            alt={project.title} 
+                            fill 
+                            className="object-contain"
+                          />
+                        )}
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                   
+                  {/* Info Button and Full Details Dialog */}
                   <div className="absolute top-4 right-4 flex gap-2">
-                     <Dialog>
-                        <DialogTrigger asChild>
-                          <Button size="icon" variant="secondary" className="bg-background/80 backdrop-blur-md hover:bg-accent hover:text-accent-foreground rounded-lg h-10 w-10 border-none">
-                            <Info className="w-5 h-5" />
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-2xl bg-card border-white/10 p-0 rounded-[2.5rem] overflow-hidden">
-                          <div className="relative h-64 w-full overflow-hidden">
-                            {project.image && (
-                              <Image 
-                                src={project.image.imageUrl} 
-                                alt={project.title} 
-                                fill 
-                                className="object-cover object-top scale-110"
-                              />
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-                          </div>
-                          <div className="p-8 lg:p-12 space-y-6">
-                            <DialogHeader>
-                              <div className="flex items-center gap-3 mb-2">
-                                <Badge className="bg-accent/10 text-accent border-accent/20 uppercase tracking-widest text-[10px] font-black">
-                                  {project.category}
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button size="icon" variant="secondary" className="bg-background/80 backdrop-blur-md hover:bg-accent hover:text-accent-foreground rounded-lg h-10 w-10 border-none shadow-lg">
+                          <Info className="w-5 h-5" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl bg-card border-white/10 p-0 rounded-[2.5rem] overflow-hidden">
+                        <div className="relative h-64 w-full overflow-hidden">
+                          {project.image && (
+                            <Image 
+                              src={project.image.imageUrl} 
+                              alt={project.title} 
+                              fill 
+                              className="object-cover object-top scale-110"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                        </div>
+                        <div className="p-8 lg:p-12 space-y-6">
+                          <DialogHeader>
+                            <div className="flex items-center gap-3 mb-2">
+                              <Badge className="bg-accent/10 text-accent border-accent/20 uppercase tracking-widest text-[10px] font-black">
+                                {project.category}
+                              </Badge>
+                              <div className="h-1 w-1 rounded-full bg-muted-foreground" />
+                              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Case Study</span>
+                            </div>
+                            <DialogTitle className="text-4xl font-headline font-bold">{project.title}</DialogTitle>
+                          </DialogHeader>
+                          <DialogDescription className="text-lg text-muted-foreground leading-relaxed">
+                            {project.longDescription}
+                          </DialogDescription>
+                          
+                          <div className="space-y-4">
+                            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-accent flex items-center gap-2">
+                              <Code className="w-4 h-4" />
+                              Technical Stack
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {project.tech.map(t => (
+                                <Badge key={t} variant="secondary" className="bg-secondary/50 text-xs px-3 py-1 border-white/5">
+                                  {t}
                                 </Badge>
-                                <div className="h-1 w-1 rounded-full bg-muted-foreground" />
-                                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Case Study</span>
-                              </div>
-                              <DialogTitle className="text-4xl font-headline font-bold">{project.title}</DialogTitle>
-                            </DialogHeader>
-                            <DialogDescription className="text-lg text-muted-foreground leading-relaxed">
-                              {project.longDescription}
-                            </DialogDescription>
-                            
-                            <div className="space-y-4">
-                              <h4 className="text-xs font-black uppercase tracking-[0.2em] text-accent flex items-center gap-2">
-                                <Code className="w-4 h-4" />
-                                Technical Stack
-                              </h4>
-                              <div className="flex flex-wrap gap-2">
-                                {project.tech.map(t => (
-                                  <Badge key={t} variant="secondary" className="bg-secondary/50 text-xs px-3 py-1 border-white/5">
-                                    {t}
-                                  </Badge>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="flex gap-4 pt-6">
-                              <Button className="flex-1 bg-accent text-accent-foreground font-bold h-14 rounded-xl" asChild>
-                                <a href={project.live} target="_blank">
-                                  Live Preview <ExternalLink className="ml-2 w-4 h-4" />
-                                </a>
-                              </Button>
-                              <Button variant="outline" className="flex-1 border-white/10 hover:bg-white/5 font-bold h-14 rounded-xl" asChild>
-                                <a href={project.github} target="_blank">
-                                  Source Code <Github className="ml-2 w-4 h-4" />
-                                </a>
-                              </Button>
+                              ))}
                             </div>
                           </div>
-                        </DialogContent>
-                     </Dialog>
+
+                          <div className="flex gap-4 pt-6">
+                            <Button className="flex-1 bg-accent text-accent-foreground font-bold h-14 rounded-xl" asChild>
+                              <a href={project.live} target="_blank">
+                                Live Preview <ExternalLink className="ml-2 w-4 h-4" />
+                              </a>
+                            </Button>
+                            <Button variant="outline" className="flex-1 border-white/10 hover:bg-white/5 font-bold h-14 rounded-xl" asChild>
+                              <a href={project.github} target="_blank">
+                                Source Code <Github className="ml-2 w-4 h-4" />
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </div>
 
